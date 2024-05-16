@@ -1,0 +1,5 @@
+Usages:
+  - name: extra
+    cppFileName: extra
+    java: Extra.java
+    folder: ../..
