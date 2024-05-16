@@ -1,4 +1,4 @@
-struct_no_prefix board_extra_s
+struct_no_prefix extra_s
 int extraField
 	uint8_t[92 iterate] unusedAtTheExtraEnd;;"",1, 0, 0, 0, 0
 end_struct
