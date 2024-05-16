@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "livedata_board_extra.h"
 
 Gpio getCommsLedPin() {
 	return Gpio::Unassigned;
@@ -10,6 +11,13 @@ Gpio getRunningLedPin() {
 
 Gpio getWarningLedPin() {
 	return Gpio::Unassigned;
+}
+
+extra_s extraGauges;
+
+template<>
+const extra_s* getLiveData(size_t) {
+	return &extraGauges;
 }
 
 // board-specific configuration setup
