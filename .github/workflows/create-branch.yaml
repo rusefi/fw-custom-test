@@ -1,0 +1,66 @@
+name: Create branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch Name'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Echo Inputs
+        run: |
+          echo "branch_name=[${{inputs.branch_name}}]"
+
+      - name: Setting env variables this could be helping with quotes
+        run: |
+          echo "branch_name=${{inputs.branch_name}}" >> $GITHUB_ENV
+          echo "Env variable [${{env.branch_name}}"
+
+      - name: Checkout Submodules
+        run: |
+          git submodule update --init --depth=1 ext/rusefi
+
+      - name: Fetch remote branches of submodule
+        working-directory: ext/rusefi
+        run: |
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*'
+          OUT=$(git branch -r | grep "origin/${{env.branch_name}}")
+          echo "OUT=$OUT"
+          if echo "$OUT" | grep origin; then
+            echo "Branch exists! [$OUT]"
+          else
+            echo "${{toJSON(inputs.branch_name)}}: branch not found"
+            exit 1
+          fi
+
+      - name: Create Branch
+        run: |
+          echo Creating branch ${{env.branch_name}}
+          git checkout -b ${{env.branch_name}}
+          git status
+
+      - name: Push new branch
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ github.token }}
+          branch: ${{env.branch_name}}
+
+      - name: Fetch remote branches of submodule
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub git update Action"
+          bash ext/rusefi/misc/git_scripts/git_switch_submodule_branch.sh ext/rusefi ${{toJSON(inputs.branch_name)}} 
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ github.token }}
+          branch: ${{env.branch_name}}
