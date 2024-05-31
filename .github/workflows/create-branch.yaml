@@ -32,6 +32,7 @@ jobs:
         working-directory: ext/rusefi
         run: |
           git fetch origin '+refs/heads/*:refs/remotes/origin/*'
+          echo "Looking for origin/${{env.branch_name}}"
           OUT=$(git branch -r | grep "origin/${{env.branch_name}}")
           echo "OUT=$OUT"
           if echo "$OUT" | grep origin; then
