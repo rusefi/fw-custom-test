@@ -41,6 +41,8 @@ jobs:
             echo "${{toJSON(inputs.branch_name)}}: branch not found"
             exit 1
           fi
+          git stash 
+          git pull --rebase
 
       - name: Create Branch
         run: |
