@@ -1,4 +1,4 @@
-// this section was generated automatically by rusEFI tool config_definition-all.jar based on (unknown script) integration/rusefi_config.txt Thu Jun 06 04:43:15 UTC 2024
+// this section was generated automatically by rusEFI tool config_definition-all.jar based on (unknown script) integration/rusefi_config.txt Thu Jun 06 04:57:45 UTC 2024
 // by class com.rusefi.output.CHeaderConsumer
 // begin
 #pragma once
@@ -5634,8 +5634,12 @@ struct persistent_config_s {
 	 * offset 22744
 	 */
 	float tcu_shiftTime;
+	/**
+	 * offset 22748
+	 */
+	int boardSpecificCalibration1;
 };
-static_assert(sizeof(persistent_config_s) == 22748);
+static_assert(sizeof(persistent_config_s) == 22752);
 
 // end
-// this section was generated automatically by rusEFI tool config_definition-all.jar based on (unknown script) integration/rusefi_config.txt Thu Jun 06 04:43:15 UTC 2024
+// this section was generated automatically by rusEFI tool config_definition-all.jar based on (unknown script) integration/rusefi_config.txt Thu Jun 06 04:57:45 UTC 2024
