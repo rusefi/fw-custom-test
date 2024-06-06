@@ -33,6 +33,9 @@ void setBoardDefaultConfiguration() {
     config->boardSpecificCalibration1 = 1500;
     extraGauges.extraCustomGauge = 2;
 
+//todo fix me https://github.com/rusefi/rusefi/issues/6586    config->boardSpecificCalibration2 = 1500;
+//todo fix me https://github.com/rusefi/rusefi/issues/6586    extraGauges.extraCustomGauge2 = 2;
+
     	// 5.6k high side/10k low side = 1.56 ratio divider
   //  	engineConfiguration->analogInputDividerCoefficient = 1.56f;
 

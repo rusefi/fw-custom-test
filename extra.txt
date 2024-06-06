@@ -1,5 +1,6 @@
 struct_no_prefix extra_s
 int extraField
 int extraCustomGauge
+!int extraCustomGauge2
 	uint8_t[92 iterate] unusedAtTheExtraEnd;;"",1, 0, 0, 0, 0
 end_struct
