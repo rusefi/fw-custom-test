@@ -1,4 +1,7 @@
 #include "pch.h"
+#include "livedata_board_extra.h"
+
+extern extra_s extraGauges;
 
 Gpio getCommsLedPin() {
 	return Gpio::Unassigned;
@@ -26,6 +29,9 @@ void setBoardDefaultConfiguration() {
 
 //	engineConfiguration->iat.adcChannel = EFI_ADC_2;
 
+
+    config->boardSpecificCalibration1 = 1500;
+    extraGauges.extraCustomGauge = 2;
 
     	// 5.6k high side/10k low side = 1.56 ratio divider
   //  	engineConfiguration->analogInputDividerCoefficient = 1.56f;
