@@ -1,3 +1,3 @@
 #include "pch.h"
 
-#include "../extra_generated.h"
+#include "../generated/extra_generated.h"
