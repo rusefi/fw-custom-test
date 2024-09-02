@@ -4,3 +4,4 @@ int extraCustomGauge
 !int extraCustomGauge2
 	uint8_t[92 iterate] unusedAtTheExtraEnd;;"",1, 0, 0, 0, 0
 end_struct
+
