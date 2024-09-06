@@ -4764,7 +4764,7 @@ end</constant>
 </constant>
         <constant digits="0" name="boardSpecificCalibration1" units="">0.0</constant>
     </page>
-    <versionInfo firmwareInfo="20240830" nPages="1" signature="rusEFI main.2024.09.06.XYZ.1434061329" version="5.0"/>
+    <versionInfo firmwareInfo="20240830" nPages="1" signature="rusEFI main.2024.09.06.XYZ.1894369054" version="5.0"/>
     <bibliography author="rusEFI 20240830" writeDate="date"/>
     <settings/>
     <userComments/>
